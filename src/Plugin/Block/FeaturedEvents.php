@@ -13,7 +13,7 @@ use Drupal\Core\Block\BlockBase;
  *   category = @Translation("Featured Events"),
  * )
  */
-class HelloBlock extends BlockBase {
+class FeaturedEvents extends BlockBase {
 
     /**
      * {@inheritdoc}
