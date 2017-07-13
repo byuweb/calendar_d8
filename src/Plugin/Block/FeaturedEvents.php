@@ -1,27 +1,83 @@
 <?php
 
-namespace Drupal\featured_events\Plugin\Block;
+namespace Drupal\calendar_widget_d8\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Provides a 'Hello' Block.
+ * Provides a 'Example: configurable text string' block.
+ *
+ * Drupal\Core\Block\BlockBase gives us a very useful set of basic functionality
+ * for this configurable block. We can just fill in a few of the blanks with
+ * defaultConfiguration(), blockForm(), blockSubmit(), and build().
  *
  * @Block(
- *   id = "featured_events",
- *   admin_label = @Translation("Featured Events block"),
- *   category = @Translation("Featured Events"),
+ *   id = "calendar_featured_events",
+ *   admin_label = @Translation("Calendar Widget: Featured Events")
  * )
  */
 class FeaturedEvents extends BlockBase {
 
-    /**
-     * {@inheritdoc}
-     */
-    public function build() {
-        return array(
-            '#markup' => $this->t('Hello, World! Here are some events:'),
-        );
-    }
+  /**
+   * {@inheritdoc}
+   */
+  public function defaultConfiguration() {
+    return array(
+      'calendar_widget_d8_string' => $this->t('A default value. Katria, This block was created at %time', array('%time' => date('c'))),
+    );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function blockForm($form, FormStateInterface $form_state) {
+      $form['calendar_widget_d8_category_id'] = array(
+          '#type' => 'textfield',
+          '#default_value' => theme_get_setting('calendar_widget_d8_category_id'),
+          '#description' => 'The Category id of the category for which you wish to display events.',
+      );
+//    $form['calendar_widget_d8_string_text'] = array(
+//      '#type' => 'textarea',
+//      '#title' => $this->t('Block contents'),
+//      '#description' => $this->t('Katria, This text will appear in the example block.'),
+//      '#default_value' => $this->configuration['calendar_widget_d8_string'],
+//    );
+    return $form;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function blockSubmit($form, FormStateInterface $form_state) {
+    $category = $form_state->getValue('calendar_widget_d8_category_id');
+      $this->configuration['calendar_widget_d8_string']
+      = $form_state->getValue('calendar_widget_d8_category_id');
+//      = calendar_widget_d8_build_display($category);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function build() {
+//      $category = $form_state->getValue('calendar_widget_d8_category_id');
+      $category = '6+4+90';
+      $html = calendar_widget_d8_build_display($category);
+//      $html = calendar_widget_d8_fetch_events($category);
+//      $html = 'this is a new test';
+    return array(
+        '#type' => 'markup',
+        //      '#markup' => $this->configuration['calendar_widget_d8_string'],
+        '#markup' =>  $html,
+        '#attached' => array(
+            'library' => array(
+                'calendar_widget_d8/feature-styles',
+            ),
+        ),
+    );
+  }
+
+
+
 
 }

@@ -1,0 +1,76 @@
+
+/* namespaced headings */
+.overall-feature-wrapper .h4, .overall-feature-wrapper .h4 a,
+.overall-feature-wrapper h4, .overall-feature-wrapper h4 a {
+    color: #002e5d;
+}
+.overall-feature-wrapper h5, .overall-feature-wrapper .h5 {
+    color: #767676;
+}
+.overall-feature-wrapper h6, .overall-feature-wrapper .h6, .overall-feature-wrapper  .h7 {
+    color: #fff;
+}
+
+.overall-feature-wrapper h5, .overall-feature-wrapper h6, .overall-feature-wrapper .h5, .overall-feature-wrapper .h6, .overall-feature-wrapper .h7 {
+    font-family: "Gotham A", "Gotham B", Arial, sans-serif;
+}
+.overall-feature-wrapper h4 {
+    font-size: 18px;
+    line-height: 20px;
+}
+.overall-feature-wrapper h4 a:hover {
+    color: #003DA5;
+}
+.overall-feature-wrapper h4 a:hover {
+    color: #003DA5;
+}
+.overall-feature-wrapper h5 {
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: .33px;
+}
+.overall-feature-wrapper h6 {
+    font-size: 25px;
+    line-height: 27px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.overall-feature-wrapper .h7 {
+    font-size: 14px;
+    line-height: 14px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* -- feature classes -- */
+
+
+
+
+.overall-feature-wrapper {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.feature-column {
+    background: #e5e5e5;
+    width: 19%;
+}
+
+.date-wrapper {
+    width: 100%;
+    background: #5F7C9B; // medblue
+}
+
+.date-weekday {
+    text-align: center;
+    padding: 10px 10px 0px;
+    text-transform: uppercase;
+}
+
+.date-day {
+    font-weight: 500;
+    padding-bottom: 10px;
+}

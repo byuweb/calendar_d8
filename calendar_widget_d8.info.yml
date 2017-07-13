@@ -3,3 +3,7 @@ type: module
 description: Generates Calendar Displays of events from calendar.byu.edu for specific dates and categories.
 core: 8.x
 package: BYU
+dependencies:
+  - drupal:block
+  - drupal:node
+#  - examples:examples
