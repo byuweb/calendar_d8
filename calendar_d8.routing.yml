@@ -1,0 +1,7 @@
+calendar_d8.description:
+  path: '/examples/block-example'
+  defaults:
+    _controller: '\Drupal\calendar_d8\Controller\BlockExampleController::description'
+    _title: 'Block Example'
+  requirements:
+    _permission: 'access content'

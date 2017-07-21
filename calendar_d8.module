@@ -2,14 +2,14 @@
 
 /**
  * @file
- * Module file for calendar_widget_d8.
+ * Module file for calendar_d8.
  */
 
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Block\BlockPluginInterface;
 
 /**
- * @defgroup calendar_widget_d8 Example: Block
+ * @defgroup calendar_d8 Example: Block
  * @ingroup examples
  * @{
  * Demonstrates code creation of blocks.
@@ -28,7 +28,7 @@ use Drupal\Core\Block\BlockPluginInterface;
  * blocks, you can also use hook_block_view_BASE_BLOCK_ID_alter() to alter a
  * specific block. To change only our block using
  * hook_block_view_BASE_BLOCK_ID_alter, we would use the function:
- * calendar_widget_d8_block_view_example_uppercase_alter()
+ * calendar_d8_block_view_example_uppercase_alter()
  *
  * We are going to uppercase the subject (the title of the block as shown to the
  * user) of any block if the string "uppercase" appears in the block title or
@@ -39,7 +39,7 @@ use Drupal\Core\Block\BlockPluginInterface;
  * hook by creating a new block whose title has the string 'uppercase' in it
  * (set as title through the UI).
  */
-function calendar_widget_d8_block_view_alter(array &$build, BlockPluginInterface $block) {
+function calendar_d8_block_view_alter(array &$build, BlockPluginInterface $block) {
   // We'll search for the string 'uppercase'.
   $definition = $block->getPluginDefinition();
   if ((!empty($build['#configuration']['label']) && stristr($build['#configuration']['label'], 'uppercase')) || (!empty($definition['subject']) && stristr($definition['subject'], 'uppercase'))) {
@@ -51,9 +51,9 @@ function calendar_widget_d8_block_view_alter(array &$build, BlockPluginInterface
 /**
  * {@inheritdoc}
  */
-function calendar_widget_d8_build_display($category) {
+function calendar_d8_build_display($category) {
 
-        $html = calendar_widget_d8_fetch_events($category);
+        $html = calendar_d8_fetch_events($category);
 //    $html = 'this is a test here';
     return $html;
 }
@@ -62,7 +62,7 @@ function calendar_widget_d8_build_display($category) {
 /**
  * {@inheritdoc}
  */
-function calendar_widget_d8_fetch_events($category) {
+function calendar_d8_fetch_events($category) {
 
     // pull how many days forward to go
     $days = 30;
@@ -111,7 +111,7 @@ function calendar_widget_d8_fetch_events($category) {
     $result = file_get_contents($jsonUrl, false, $context);
 
     $jsonArr = json_decode($result, true);
-    $html = calendar_widget_d8_format_featured($jsonArr, $startDate, $endDate, $limit);
+    $html = calendar_d8_format_featured($jsonArr, $startDate, $endDate, $limit);
 //    $html = $jsonUrl;
     return $html;
 }
@@ -120,7 +120,7 @@ function calendar_widget_d8_fetch_events($category) {
 /**
  * {@inheritdoc}
  */
-function calendar_widget_d8_format_featured($jsonArr, $startDate, $endDate, $limit) {
+function calendar_d8_format_featured($jsonArr, $startDate, $endDate, $limit) {
 
     // do all the formatting here
 
@@ -271,7 +271,7 @@ function calendar_widget_d8_format_featured($jsonArr, $startDate, $endDate, $lim
 
 
 /**
- * @} End of "defgroup calendar_widget_d8".
+ * @} End of "defgroup calendar_d8".
  */
 
 
