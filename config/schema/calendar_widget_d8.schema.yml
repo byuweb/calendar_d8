@@ -2,6 +2,6 @@ block.settings.example_configurable_text:
   type: block_settings
   label: 'Example configurable text block configuration'
   mapping:
-    calendar_widget_d8_string:
+    calendar_d8_string:
       type: text
       label: 'Block contents'

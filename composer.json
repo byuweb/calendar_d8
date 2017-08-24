@@ -1,14 +1,14 @@
 {
-  "name": "drupal/calendar_widget_d8",
+  "name": "drupal/calendar_d8",
   "type": "drupal-module",
   "description": "Generates Calendar Displays of events from calendar.byu.edu for specific dates and categories.",
   "keywords": ["Drupal"],
   "license": "GPL-2.0+",
-  "homepage": "https://www.drupal.org/project/calendar_widget_d8",
+  "homepage": "https://www.drupal.org/project/calendar_d8",
   "minimum-stability": "dev",
   "support": {
-    "issues": "https://www.drupal.org/project/issues/calendar_widget_d8",
-    "source": "http://cgit.drupalcode.org/calendar_widget_d8"
+    "issues": "https://www.drupal.org/project/issues/calendar_d8",
+    "source": "http://cgit.drupalcode.org/calendar_d8"
   },
   "require": { }
 }

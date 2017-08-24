@@ -43,6 +43,12 @@
     text-align: center;
 }
 
+.overall-feature-wrapper  a,
+.overall-feature-wrapper a:hover {
+    border-bottom: none;
+    text-decoration: none;
+}
+
 /* -- feature classes -- */
 
 
@@ -55,22 +61,193 @@
 }
 
 .feature-column {
-    background: #e5e5e5;
+    /*background: #e5e5e5;*/
     width: 19%;
+}
+@media screen and (max-width: 1224px){
+    .feature-column {
+        /*background: #e5e5e5;*/
+        width: 24%;
+    }
 }
 
 .date-wrapper {
     width: 100%;
-    background: #5F7C9B; // medblue
+    background: #5F7C9B; /* medblue */
+    margin-bottom: 10px;
 }
 
 .date-weekday {
     text-align: center;
     padding: 10px 10px 0px;
     text-transform: uppercase;
+    margin-top: 0px;
+    font-weight: 500;
 }
 
 .date-day {
-    font-weight: 500;
+    font-weight: bold;
     padding-bottom: 10px;
+}
+
+
+
+    /*Links column*/
+.column-links {
+
+}
+.column-links > img {
+    width: 100%;
+    height: 350px;
+}
+
+
+.full-events,
+.academic-calendar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-family: "Gotham A", "Gotham B", Arial, sans-serif;
+}
+
+.full-events {
+    top: -300px;
+}
+.academic-calendar {
+    top: -200px;
+}
+
+.academic-calendar-text,
+.full-events-text {
+    font-size: 12px;
+    text-align: center;
+    font-weight: 500;
+    padding-bottom: 5px;
+}
+
+.academic-calendar-text .larger,
+.full-events-text .larger {
+    font-size: 16px;
+    margin: -3px 0px;
+    font-weight: bold;
+}
+
+
+
+
+.academic-calendar-button,
+.full-events-button {
+    padding: 5px 5px;
+    background:  #5F7C9B; /* medblue */
+    border: 3px solid #fff;
+    width: 65px;
+    text-align: center;
+    /*color: #fff;*/
+    text-transform: uppercase;
+    font-size: 12px;
+
+}
+/* positioning */
+.full-events-button {
+    position: relative;
+    /*top: -201px;*/
+    /*left: 49px;*/
+}
+#full-events-area:hover .full-events-button {
+    background: #002e5d; /* medblue */
+}
+
+.academic-calendar-button {
+    background: #002e5d;
+    position: relative;
+    /*top: -91px;*/
+    /*left: 49px;*/
+}
+#academic-area:hover .academic-calendar-button {
+    background: #5F7C9B; /* medblue */
+}
+
+.feature-column > .event.event-1 {
+    border-top: 1px solid gray;
+    margin-top: 25px;
+    padding-top: 5px;
+}
+
+/*Mobile Adjustments*/
+
+
+@media screen and (max-width: 1224px) {
+
+    .feature-column.column-4 {
+        display: none;
+    }
+}
+@media screen and (max-width: 768px) {
+
+    .overall-feature-wrapper {
+       flex-wrap: wrap;
+    }
+
+    .academic-calendar-button,
+    .full-events-button,
+    .column-links > img {
+        display: none;
+    }
+    .feature-column {
+        /*background: #e5e5e5;*/
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .date-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+    }
+    .date-weekday {
+       order: 2;
+       padding: 5px 30px 5px 15px;
+
+    }
+
+    .date-day {
+        order: 1;
+        padding: 0px 29px;
+
+    }
+    .full-events,
+    .academic-calendar {
+        top: 0px;
+
+    }
+    .column-links {
+        display: flex;
+        justify-content: center ;
+    }
+    .full-link, .academic-link {
+        width: 200px;
+        /*margin-right: auto;*/
+        /*margin-left: auto;*/
+        margin: 10px 5px;
+        height: 65px;
+    }
+    .full-events {
+        background: #5F7C9B; /* medblue */
+        height: 100%;
+    }
+    .academic-calendar {
+        background: #002e5d;
+        height: 100%;
+    }
+    .academic-calendar-text .larger {
+        margin: -4px 0px -4px;
+    }
+    .full-events-text .larger {
+        margin: -4px 0px -4px;
+    }
 }
