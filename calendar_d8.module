@@ -237,7 +237,7 @@ function calendar_d8_format_featured($jsonArr, $startDate, $endDate, $limit) {
         //add final links column
         $html .= '<div class="feature-column column-links">';
 
-        $html .= '<img src="../d8-test/modules/custom/calendar_d8/images/FeatureEventsLinkColumn.PNG" usemap="#events-map">';
+        $html .= '<img src="/modules/custom/calendar_d8/images/FeatureEventsLinkColumn.PNG" usemap="#events-map">';
 
 
 
@@ -246,7 +246,7 @@ function calendar_d8_format_featured($jsonArr, $startDate, $endDate, $limit) {
                 $html .= '<div class="full-events-button h7">View >></div>';
             $html .= '</div></a>';
 
-            $html .= '<a href="../academic" class="academic-link"><div class="academic-calendar">';
+            $html .= '<a href="/academics" class="academic-link"><div class="academic-calendar">';
                 $html .= '<div class="academic-calendar-text"><div class="larger">ACADEMIC</div>CALENDAR</div>';
                 $html .= '<div class="academic-calendar-button h7">View >></div>';
             $html .= '</div></a>';
@@ -256,7 +256,7 @@ function calendar_d8_format_featured($jsonArr, $startDate, $endDate, $limit) {
         $html .= '</div>'; // ending the wrapping div with start and end date classes
 //        $html .= 'this is a test';
         $html .=  '<map name="events-map">';
-        $html .= '<area id="academic-area" target="" alt="Academic Calendar" title="Academic Calendar" href="../academic" coords="6,205,173,167,174,290,5,290" shape="poly">';
+        $html .= '<area id="academic-area" target="" alt="Academic Calendar" title="Academic Calendar" href="/academics" coords="6,205,173,167,174,290,5,290" shape="poly">';
         $html .= '<area id="full-events-area" target="_blank" alt="Full Events Calendar" title="Full Events Calendar" href="https://calendar.byu.edu" coords="4,4,173,4,174,161,6,201" shape="poly">';
         $html .='</map>';
     }
