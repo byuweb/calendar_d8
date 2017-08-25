@@ -3,7 +3,3 @@ feature-styles:
   css:
     layout:
       css/feature_styles.css: {}
-#    theme:
-#      css/cuddly-slider-theme.css: {}
-#  js:
-#    js/cuddly-slider.js: {}

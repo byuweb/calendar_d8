@@ -61,14 +61,19 @@ class FeaturedEvents extends BlockBase {
    */
   public function build() {
 //      $category = $form_state->getValue('calendar_d8_category_id');
-      $category = '6+4+90';
+      $category = '90';
       $html = calendar_d8_build_display($category);
 //      $html = calendar_d8_fetch_events($category);
 //      $html = 'this is a new test';
     return array(
-        '#type' => 'markup',
+//        '#type' => 'markup',
         //      '#markup' => $this->configuration['calendar_d8_string'],
-        '#markup' =>  $html,
+//        '#markup' =>  $html,
+        '#type' => 'inline_template',
+        '#template' => '{{ content | raw }}',
+        '#context' => [
+          'content' => $html,
+        ],
         '#attached' => array(
             'library' => array(
                 'calendar_d8/feature-styles',

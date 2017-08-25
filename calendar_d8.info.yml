@@ -5,5 +5,3 @@ core: 8.x
 package: BYU
 dependencies:
   - drupal:block
-  - drupal:node
-#  - examples:examples
