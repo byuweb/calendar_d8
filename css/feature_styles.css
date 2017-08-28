@@ -1,4 +1,6 @@
-
+#block-calendarwidgetfeaturedevents h2 {
+    margin-top: 100px;
+}
 /* namespaced headings */
 .overall-feature-wrapper .h4, .overall-feature-wrapper .h4 a,
 .overall-feature-wrapper h4, .overall-feature-wrapper h4 a {
