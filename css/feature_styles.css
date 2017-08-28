@@ -51,20 +51,18 @@
 
 /* -- feature classes -- */
 
-
-
-
 .overall-feature-wrapper {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 
 }
 
 .feature-column {
     /*background: #e5e5e5;*/
     width: 19%;
+    overflow: hidden; /*Required to hide overflow of skewed objects*/
 }
-@media screen and (max-width: 1224px){
+@media screen and (max-width: 1223px){
     .feature-column {
         /*background: #e5e5e5;*/
         width: 24%;
@@ -85,25 +83,61 @@
     font-weight: 500;
 }
 
-.date-day {
+.date-weekday.h6 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.date-day.h7 {
     font-weight: bold;
     padding-bottom: 10px;
+    font-size: 16px;
 }
 
 
 
-    /*Links column*/
-.column-links {
-
-}
-.column-links > img {
-    width: 100%;
+/*Links column*/
+column-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     height: 350px;
 }
 
+.full-link {
+    height: 67%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 40px;
+    background-color: #5F7C9B;
+}
+.academic-link {
+    height: 33%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #002e5d;
+    transform: skewY(0deg);
+}
+.academic-link:after {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    content: '';
+    background: inherit;
+    z-index: -1;
+    width: 100%;
+    height: 60%;
+    transform-origin: top left;
+    transform: skewY(-13deg);
+    border-top: 5px solid white;
+
+}
 
 .full-events,
-.academic-calendar {
+.academic-calendar-wrapper {
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -114,19 +148,20 @@
     font-family: "Gotham A", "Gotham B", Arial, sans-serif;
 }
 
-.full-events {
-    top: -300px;
-}
-.academic-calendar {
-    top: -200px;
-}
 
 .academic-calendar-text,
 .full-events-text {
     font-size: 12px;
     text-align: center;
     font-weight: 500;
+}
+
+.academic-calendar-text {
     padding-bottom: 5px;
+}
+
+.full-events-text {
+    padding-bottom: 15px;
 }
 
 .academic-calendar-text .larger,
@@ -136,20 +171,16 @@
     font-weight: bold;
 }
 
-
-
-
-.academic-calendar-button,
-.full-events-button {
+.academic-calendar-button.h7,
+.full-events-button.h7 {
     padding: 5px 5px;
     background:  #5F7C9B; /* medblue */
     border: 3px solid #fff;
-    width: 65px;
+    width: 80px;
     text-align: center;
     /*color: #fff;*/
     text-transform: uppercase;
     font-size: 12px;
-
 }
 /* positioning */
 .full-events-button {
@@ -157,17 +188,21 @@
     /*top: -201px;*/
     /*left: 49px;*/
 }
-#full-events-area:hover .full-events-button {
+#full-events-area:hover,
+#academic-area:hover {
+    cursor: pointer;
+}
+#full-events-area:hover .full-events-button.h7 {
     background: #002e5d; /* medblue */
 }
 
-.academic-calendar-button {
+.academic-calendar-button.h7 {
     background: #002e5d;
     position: relative;
     /*top: -91px;*/
     /*left: 49px;*/
 }
-#academic-area:hover .academic-calendar-button {
+#academic-area:hover .academic-calendar-button.h7 {
     background: #5F7C9B; /* medblue */
 }
 
@@ -180,8 +215,7 @@
 /*Mobile Adjustments*/
 
 
-@media screen and (max-width: 1224px) {
-
+@media screen and (min-width: 769px) and (max-width: 1223px) {
     .feature-column.column-4 {
         display: none;
     }
@@ -212,7 +246,9 @@
     .date-weekday {
        order: 2;
        padding: 5px 30px 5px 15px;
-
+    }
+    .date-weekday.h6 {
+        margin-bottom: 0;
     }
 
     .date-day {
@@ -221,9 +257,8 @@
 
     }
     .full-events,
-    .academic-calendar {
+    .academic-calendar-wrapper {
         top: 0px;
-
     }
     .column-links {
         display: flex;
@@ -240,7 +275,7 @@
         background: #5F7C9B; /* medblue */
         height: 100%;
     }
-    .academic-calendar {
+    .academic-calendar-wrapper {
         background: #002e5d;
         height: 100%;
     }
