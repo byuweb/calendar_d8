@@ -90,7 +90,6 @@
 
 .date-day.h7 {
     font-weight: bold;
-    padding-bottom: 10px;
     font-size: 16px;
 }
 
@@ -110,7 +109,6 @@ column-links {
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    padding-top: 40px;
     background-color: #5F7C9B;
 }
 .academic-link {
@@ -121,21 +119,45 @@ column-links {
     background-color: #002e5d;
     transform: skewY(0deg);
 }
-.academic-link:after {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    content: '';
-    background: inherit;
-    z-index: -1;
-    width: 100%;
-    height: 60%;
-    transform-origin: top left;
-    transform: skewY(-13deg);
-    border-top: 5px solid white;
+@media screen and (min-width: 769px) {
+    .academic-link:after {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        content: '';
+        background: inherit;
+        z-index: -1;
+        width: 100%;
+        height: 60%;
+        transform-origin: top left;
+        transform: skewY(-13deg);
+        border-top: 5px solid white;
 
+    }
+    .date-day.h7 {
+        padding-bottom: 10px;
+    }
+    .feature-column {
+        min-height: 350px;
+    }
+    .full-link {
+        padding-top: 50px;
+    }
+    .full-events-text {
+        padding-bottom: 15px;
+    }
+    .academic-calendar-text {
+        padding-bottom: 5px;
+    }
 }
-
+@media screen and (max-width: 768px){
+    .event {
+        padding: 0px 29px;
+    }
+    .academic-calendar-text {
+        padding-top: 5px;
+    }
+}
 .full-events,
 .academic-calendar-wrapper {
     position: relative;
@@ -154,14 +176,6 @@ column-links {
     font-size: 12px;
     text-align: center;
     font-weight: 500;
-}
-
-.academic-calendar-text {
-    padding-bottom: 5px;
-}
-
-.full-events-text {
-    padding-bottom: 15px;
 }
 
 .academic-calendar-text .larger,
@@ -209,7 +223,7 @@ column-links {
 .feature-column > .event.event-1 {
     border-top: 1px solid gray;
     margin-top: 25px;
-    padding-top: 5px;
+    padding-top: 15px;
 }
 
 /*Mobile Adjustments*/
