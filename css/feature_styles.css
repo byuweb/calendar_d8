@@ -302,3 +302,10 @@ column-links {
         margin: -4px 0px -4px;
     }
 }
+
+.location.h5 {
+    margin-bottom: 0px;
+}
+.event-time.h5 {
+    margin-top: 2px;
+}
