@@ -145,7 +145,7 @@ function calendar_d8_format_featured($jsonArr, $startDate, $endDate, $limit) {
     $columnDate = $startDate;
     $columnEventCount = 0;
     $columnId = 1;
-    $lastDate = date();
+    $lastDate = date("y-m-d");
 
     foreach ($jsonArr as $item) {
       if ($count == $limit) {

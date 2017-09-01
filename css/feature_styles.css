@@ -140,7 +140,7 @@ column-links {
         padding-bottom: 10px;
     }
     .feature-column {
-        min-height: 350px;
+        height: 350px;
     }
     .full-link {
         padding-top: 50px;
