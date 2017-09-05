@@ -73,7 +73,7 @@
 
 .date-wrapper {
     width: 100%;
-    background: #5F7C9B; /* medblue */
+    background: #5D7998; /* medblue */
     margin-bottom: 10px;
 }
 
@@ -111,7 +111,7 @@ column-links {
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    background-color: #5F7C9B;
+    background-color: #5D7998;
 }
 .academic-link {
     height: 33%;
