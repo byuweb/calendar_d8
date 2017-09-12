@@ -190,7 +190,7 @@ column-links {
 .academic-calendar-button.h7,
 .full-events-button.h7 {
     padding: 5px 5px;
-    background:  #5F7C9B; /* medblue */
+    background:  #5D7998; /* medblue */
     border: 3px solid #fff;
     width: 80px;
     text-align: center;
@@ -219,7 +219,7 @@ column-links {
     /*left: 49px;*/
 }
 #academic-area:hover .academic-calendar-button.h7 {
-    background: #5F7C9B; /* medblue */
+    background: #5D7998; /* medblue */
 }
 
 .feature-column > .event.event-1 {
@@ -288,7 +288,7 @@ column-links {
         height: 65px;
     }
     .full-events {
-        background: #5F7C9B; /* medblue */
+        background: #5D7998; /* medblue */
         height: 100%;
     }
     .academic-calendar-wrapper {
