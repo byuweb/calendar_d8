@@ -159,6 +159,9 @@ column-links {
     .academic-calendar-text {
         padding-top: 5px;
     }
+    #block-calendarwidgetfeaturedevents h2 {
+        margin-top: 20px;
+    }
 }
 .full-events,
 .academic-calendar-wrapper {
