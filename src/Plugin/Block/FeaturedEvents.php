@@ -2,6 +2,8 @@
 
 namespace Drupal\calendar_d8\Plugin\Block;
 
+use DateTime;
+use DateTimeZone;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
 
@@ -65,6 +67,10 @@ class FeaturedEvents extends BlockBase {
       $html = calendar_d8_build_display($category);
 //      $html = calendar_d8_fetch_events($category);
 //      $html = 'this is a new test';
+      $tz = new DateTimeZone('America/Denver');
+      $tomorrow = new DateTime("tomorrow", $tz);
+      $now = new DateTime("now", $tz);
+
     return array(
 //        '#type' => 'markup',
         //      '#markup' => $this->configuration['calendar_d8_string'],
@@ -73,6 +79,9 @@ class FeaturedEvents extends BlockBase {
         '#template' => '{{ content | raw }}',
         '#context' => [
           'content' => $html,
+        ],
+        '#cache' => [
+            'max-age' => ($tomorrow->getTimestamp() - $now->getTimestamp()) //i.e. expire cache at midnight tonight
         ],
         '#attached' => array(
             'library' => array(

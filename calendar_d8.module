@@ -5,6 +5,8 @@
  * Module file for calendar_d8.
  */
 
+use DateTime;
+use DateTimeZone;
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Block\BlockPluginInterface;
 
@@ -62,23 +64,16 @@ function calendar_d8_build_display($category) {
  */
 function calendar_d8_fetch_events($category) {
   // pull how many days forward to go
-  $days = 30;
+  $days = 29;
 
-  // today's time
-  $startTime = time();
-  //Get today's date
-  $startDateOb = date_create("@$startTime");
-  date_timezone_set($startDateOb, timezone_open('America/Denver'));
-  $startDate = date_format($startDateOb, 'Y-m-d');
+  $tz = new DateTimeZone('America/Denver');
 
+  $start = new DateTime("now", $tz);
+  $startDate = $start->format('Y-m-d');
 
-  //Calculate the date a week ago.
-  //$end_time = mktime(0, 0, 0, $today['mon'], ($today['mday'] + $days), $today['year']);
-  // have to minus days because it includes today plus $days-1 to equal total $days
-  $endTime = $startTime + (($days - 1) * 24 * 3600);
-  $endDateOb = date_create_from_format('U', $endTime);
-  date_timezone_set($endDateOb, timezone_open('America/Denver'));
-  $endDate = date_format($endDateOb, 'Y-m-d');
+  $end = new DateTime("+{$days} days", $tz);
+  $endDate = $end->format('Y-m-d');
+
 
   // get categories
   $categoriesString = $category;
@@ -91,10 +86,8 @@ function calendar_d8_fetch_events($category) {
   if ($limit == 0) {
     $limit = -1;
   }
-  //  Example Url:
-  //  $jsonUrl = 'https://calendar.byu.edu/api/Events?event[min][date]=2017-01-30&event[max][date]=2017-02-05&categories=10+151';
-  $jsonUrl = 'http://calendar.byu.edu/api/Events?event[min][date]=' . $startDate . '&event[max][date]=' . $endDate . '&categories=' . $categories;
-  //    $jsonUrl = 'https://calendar.byu.edu/api/ Events?categories=10+6&event[min][date]=2017-07-01&event[max][date]=2017-08-30';
+
+  $jsonUrl = "http://calendar.byu.edu/api/Events?event[min][date]={$startDate}&event[max][date]={$endDate}&categories={$categories}";
 
   $options = [
     'http' => [
