@@ -3,3 +3,7 @@ feature-styles:
   css:
     layout:
       css/feature_styles.css: {}
+  js:
+    js/byu-calendar-loader.js: {}
+  dependencies:
+    - core/jquery

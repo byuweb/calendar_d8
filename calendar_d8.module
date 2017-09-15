@@ -53,11 +53,53 @@ function calendar_d8_block_view_alter(array &$build, BlockPluginInterface $block
 /**
  * {@inheritdoc}
  */
-function calendar_d8_build_display($category) {
-  $html = calendar_d8_fetch_events($category);
+function calendar_d8_build_display($category, $serverSide = false) {
+    if ($serverSide) {
+        $html = calendar_d8_fetch_events($category);
+    } else {
+        $html = calendar_d8_client_side_events($category);
+    }
   return $html;
 }
 
+function calendar_d8_client_side_events($category) {
+  $categories = str_replace(",", "+", $category);
+  $categories = str_replace(" ", "", $categories);
+  $categories = urlencode($categories);
+  $jsonUrl = "https://calendar.byu.edu/api/Events.json?event[min][date]=START_DATE&event[max][date]=END_DATE&categories={$categories}";
+  return '<script type="text/javascript">var byuCalendarEventsUrl="' . $jsonUrl . '";</script>
+<div class="overall-feature-wrapper calendar-widget-block display-list">
+    <div id="calendar-event-column-template" style="display: none" class="feature-column">
+        <div class="date-wrapper">
+            <div class="date-weekday h6">DATE_WEEKDAY</div>
+            <div class="date-day h7">DATE_MONTH_DAY</div>
+        </div>
+        <div id="calendar-event-event-template" class="event">
+            <div class="event-content">
+                <h4 class="event-title">
+                    <a href="EVENT_HREF" target="_blank">EVENT_TITLE</a>
+                </h4>
+                <div class="location h5" slot="location">EVENT_LOCATION</div>
+                <div class="event-time h5">EVENT_TIME</div>
+            </div>
+        </div>
+    </div>
+    <div class="feature-column column-links">
+        <a href="https://calendar.byu.edu" class="full-link" id="full-events-area">
+            <div class="full-events">
+                <div class="full-events-text">FULL<div class="larger">EVENTS</div>CALENDAR</div>
+                <div class="full-events-button h7">View &gt;&gt;</div>
+            </div>
+        </a><a href="/academics" class="academic-link" id="academic-area">
+            <div class="academic-calendar-wrapper">
+                <div class="academic-calendar-text">
+                    <div class="larger">ACADEMIC</div>CALENDAR</div>
+                <div class="academic-calendar-button h7">View &gt;&gt;</div>
+            </div>
+        </a>
+    </div>
+</div>';
+}
 
 /**
  * {@inheritdoc}
@@ -76,9 +118,7 @@ function calendar_d8_fetch_events($category) {
 
 
   // get categories
-  $categoriesString = $category;
-
-  $categories = str_replace(",", "+", $categoriesString);
+  $categories = str_replace(",", "+", $category);
   $categories = str_replace(" ", "", $categories);
 
   $limit = 8;
@@ -122,9 +162,6 @@ function calendar_d8_format_featured($jsonArr, $startDate, $endDate, $limit) {
   else {
 
     $html = '<div class="overall-feature-wrapper startDate-' . $startDate . ' endDate-' . $endDate . ' calendar-widget-block display-list">';
-    //    $html = '<h3>' . $startDate . ' through ' . $endDate . '</h3><p>HEre is some text.</p><p>And here is some more text.</p>';
-    //
-    //    $html .= '<p>the limit is ' . $limit . '</p>';
     $currentTime = new DateTime();
     $currentTime->setTimestamp(strtotime("now"));
 
@@ -221,15 +258,9 @@ function calendar_d8_format_featured($jsonArr, $startDate, $endDate, $limit) {
         $columnId++;
       }
     }
-//
+
     //add final links column
     $html .= '<div class="feature-column column-links">';
-//    $html .= "<img src=" . file_create_url(drupal_get_path('module', 'calendar_d8') . '/images/FeatureEventsLinkColumn.PNG') . " usemap=\"#events-map\" />";
-//
-//    $html .= "<map name=\"events-map\">
-//    <area target=\"_blank\" alt=\"Full Events Calendar\" title=\"Full Events Calendar\" href=\"https://calendar.byu.edu\" coords=\"0,194,3,0,174,0,177,150,175,150\" shape=\"poly\">
-//    <area target=\"_blank\" alt=\"Academic Calendar\" title=\"Academic Calendar\" href=\"/academics\" coords=\"2,202,178,162,178,299,0,299\" shape=\"poly\">
-//</map>";
 
     $html .= '<a href="https://calendar.byu.edu" class="full-link" id="full-events-area"><div class="full-events">';
     $html .= '<div class="full-events-text">FULL<div class="larger">EVENTS</div>CALENDAR</div>';
@@ -245,10 +276,6 @@ function calendar_d8_format_featured($jsonArr, $startDate, $endDate, $limit) {
     $html .= '</div>'; // end column-links
     $html .= '</div>'; // ending the wrapping div with start and end date classes
 
-//    $html .= '<map name="events-map">';
-//    $html .= '<area id="academic-area" target="" alt="Academic Calendar" title="Academic Calendar" href="/academic" coords="6,205,173,167,174,290,5,290" shape="poly">';
-//    $html .= '<area id="full-events-area" target="_blank" alt="Full Events Calendar" title="Full Events Calendar" href="https://calendar.byu.edu" coords="4,4,173,4,174,16,6,201" shape="poly">';
-//    $html .= '</map>';
   }
 
   return $html;
