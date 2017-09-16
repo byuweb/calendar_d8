@@ -13,8 +13,13 @@
         colTemplate.attr('id', '');
         colTemplate.css({'display': ''});
 
-        var start = new Date();
-        var end = new Date();
+        var now = new Date();
+        //slightly hacky way to make "toISOString" show current LOCAL date, even
+        //if GMT has already crossed to tomorrow's date: subtract timezone offset
+        //(converted from minutes to milliseconds)
+        var offsetTimestamp = now.getTime() - (now.getTimezoneOffset() * 1000 * 60);
+        var start = new Date(offsetTimestamp);
+        var end = new Date(offsetTimestamp);
         end.setDate(end.getDate() + 29);
         var url = byuCalendarEventsUrl.replace('START_DATE', start.toISOString().slice(0, 10)).replace('END_DATE', end.toISOString().slice(0, 10));
         $.get(url, function(data) {
