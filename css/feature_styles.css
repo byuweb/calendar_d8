@@ -20,9 +20,11 @@
     font-size: 18px;
     line-height: 20px;
 }
+.overall-feature-wrapper h4 a:focus,
 .overall-feature-wrapper h4 a:hover {
     color: #005eb8;
 }
+.overall-feature-wrapper h4 a:focus,
 .overall-feature-wrapper h4 a:hover {
     color: #005eb8;
 }
@@ -46,6 +48,7 @@
 }
 
 .overall-feature-wrapper  a,
+.overall-feature-wrapper a:focus,
 .overall-feature-wrapper a:hover {
     border-bottom: none;
     text-decoration: none;
@@ -207,10 +210,13 @@ column-links {
     /*top: -201px;*/
     /*left: 49px;*/
 }
+#full-events-area:focus,
+#academic-area:focus,
 #full-events-area:hover,
 #academic-area:hover {
     cursor: pointer;
 }
+#full-events-area:focus .full-events-button.h7,
 #full-events-area:hover .full-events-button.h7 {
     background: #002e5d; /* medblue */
 }
@@ -221,6 +227,7 @@ column-links {
     /*top: -91px;*/
     /*left: 49px;*/
 }
+#academic-area:focus .academic-calendar-button.h7,
 #academic-area:hover .academic-calendar-button.h7 {
     background: #5D7998; /* medblue */
 }
