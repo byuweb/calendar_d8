@@ -14,7 +14,7 @@
 }
 
 .overall-feature-wrapper h5, .overall-feature-wrapper h6, .overall-feature-wrapper .h5, .overall-feature-wrapper .h6, .overall-feature-wrapper .h7 {
-    font-family: "Gotham A", "Gotham B", Arial, sans-serif;
+    font-family: "Ringside Narrow A", "Ringside Narrow B", Arial, sans-serif;
 }
 .overall-feature-wrapper h4 {
     font-size: 18px;
@@ -175,7 +175,7 @@ column-links {
     justify-content: center;
     align-items: center;
     color: #fff;
-    font-family: "Gotham A", "Gotham B", Arial, sans-serif;
+    font-family: "Ringside Narrow A", "Ringside Narrow B", Arial, sans-serif;
 }
 
 
