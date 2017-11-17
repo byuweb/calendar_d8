@@ -84,7 +84,6 @@
                 } else {
                     cleanLocation = data[i]['LocationName'];
                 }
-                console.log(cleanLocation);
                 event.html(event.html()
                     .replace('EVENT_HREF', data[i]['FullUrl'])
                     .replace('EVENT_TITLE', data[i]['Title'])
