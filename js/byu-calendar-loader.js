@@ -80,7 +80,6 @@
                 event.addClass('event-' + evtCount);
                 if (data[i]['LocationName'] == null) {
                     cleanLocation = '';
-                    console.log('it is null');
                 } else {
                     cleanLocation = data[i]['LocationName'];
                 }
