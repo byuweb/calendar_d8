@@ -76,12 +76,20 @@
                     eventTime = '' + hour + ':' + minute + ' ' + ampm;
                 }
                 var event = eventTemplate.clone();
+                var cleanLocation;
                 event.addClass('event-' + evtCount);
+                if (data[i]['LocationName'] == null) {
+                    cleanLocation = '';
+                } else {
+                    cleanLocation = data[i]['LocationName'];
+                }
                 event.html(event.html()
                     .replace('EVENT_HREF', data[i]['FullUrl'])
                     .replace('EVENT_TITLE', data[i]['Title'])
-                    .replace('EVENT_LOCATION', data[i]['LocationName'])
+                    .replace('EVENT_LOCATION', cleanLocation)
                     .replace('EVENT_TIME', eventTime));
+
+
                 //TODO: fill in data
                 column.append(event);
                 evtCount++;
