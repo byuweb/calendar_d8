@@ -72,15 +72,15 @@ function calendar_d8_client_side_events($category) {
     <div id="calendar-event-column-template" style="display: none" class="feature-column">
         <div class="date-wrapper">
             <div class="date-weekday h6">DATE_WEEKDAY</div>
-            <div class="date-day h7">DATE_MONTH_DAY</div>
+            <div class="date-day white bold centered-text">DATE_MONTH_DAY</div>
         </div>
         <div id="calendar-event-event-template" class="event">
             <div class="event-content">
                 <h4 class="event-title">
                     <a href="EVENT_HREF" target="_blank">EVENT_TITLE</a>
                 </h4>
-                <div class="location h5" slot="location">EVENT_LOCATION</div>
-                <div class="event-time h5">EVENT_TIME</div>
+                <div class="location" slot="location">EVENT_LOCATION</div>
+                <div class="event-time">EVENT_TIME</div>
             </div>
         </div>
     </div>
@@ -88,13 +88,13 @@ function calendar_d8_client_side_events($category) {
         <a href="https://calendar.byu.edu" class="full-link" id="full-events-area">
             <div class="full-events">
                 <div class="full-events-text">FULL<div class="larger">EVENTS</div>CALENDAR</div>
-                <div class="full-events-button h7">View &gt;&gt;</div>
+                <div class="full-events-button white bold centered-text">View &gt;&gt;</div>
             </div>
         </a><a href="https://registrar.byu.edu/academic-calendar" class="academic-link" id="academic-area">
             <div class="academic-calendar-wrapper">
                 <div class="academic-calendar-text">
                     <div class="larger">ACADEMIC</div>CALENDAR</div>
-                <div class="academic-calendar-button h7">View &gt;&gt;</div>
+                <div class="academic-calendar-button white bold centered-text">View &gt;&gt;</div>
             </div>
         </a>
     </div>
@@ -188,7 +188,7 @@ function calendar_d8_format_featured($jsonArr, $startDate, $endDate, $limit) {
       if ($first_item) {
         $lastDate = date("y-m-d", strtotime($item[ 'StartDateTime' ]));
         $html .= '<div class="feature-column column-' . $columnId . '">';// start the first the column div
-        $html .= '<div class="date-wrapper"><div class="date-weekday h6">' . date("l", strtotime($item[ 'StartDateTime' ])) . '</div><div class="date-day h7">' . date("M j", strtotime($item[ 'StartDateTime' ])) . '</div></div>';
+        $html .= '<div class="date-wrapper"><div class="date-weekday h6">' . date("l", strtotime($item[ 'StartDateTime' ])) . '</div><div class="date-day white bold centered-text">' . date("M j", strtotime($item[ 'StartDateTime' ])) . '</div></div>';
         $currentTime = $new_date;
         $first_item = FALSE;
       }
@@ -208,7 +208,7 @@ function calendar_d8_format_featured($jsonArr, $startDate, $endDate, $limit) {
         else {
           // continue to next column
           $html .= '<div class="feature-column column-' . $columnId . '">'; // start the next column div
-          $html .= '<div class="date-wrapper"><div class="date-weekday h6">' . date("l", strtotime($item[ 'StartDateTime' ])) . '</div><div class="date-day h7">' . date("M j", strtotime($item[ 'StartDateTime' ])) . '</div></div>';
+          $html .= '<div class="date-wrapper"><div class="date-weekday h6">' . date("l", strtotime($item[ 'StartDateTime' ])) . '</div><div class="date-day white bold centered-text">' . date("M j", strtotime($item[ 'StartDateTime' ])) . '</div></div>';
           $currentTime = $new_date;
         }
       }
@@ -225,14 +225,14 @@ function calendar_d8_format_featured($jsonArr, $startDate, $endDate, $limit) {
         $html .= '<h4 class="event-title"><a href="' . $item[ 'FullUrl' ] . ' " target="_blank">' . $item[ 'Title' ] . '</a></h4>';
 
         if ($item[ 'LocationName' ] != NULL) {
-          $html .= '<div class="location h5" slot="location">' . $item[ 'LocationName' ] . '</div>';
+          $html .= '<div class="location" slot="location">' . $item[ 'LocationName' ] . '</div>';
         }
 
         if ($item[ 'AllDay' ] == 'false') {
-          $html .= '<div class="event-time h5">' . date("g:i A", strtotime($item[ 'StartDateTime' ])).'</div>';
+          $html .= '<div class="event-time">' . date("g:i A", strtotime($item[ 'StartDateTime' ])).'</div>';
         }
         else {
-          $html .= '<div class="event-time h5">All Day</div>';
+          $html .= '<div class="event-time">All Day</div>';
         }
 
         $html .= '</div>'; //close event content wrapper
@@ -253,7 +253,7 @@ function calendar_d8_format_featured($jsonArr, $startDate, $endDate, $limit) {
       while($columnId < 4) {
         $currentDate = date("y-m-d", strtotime($lastDate . '+1 day'));
         $html .= '<div class="feature-column column-' . $columnId . '">'; // start the next column div
-        $html .= '<div class="date-wrapper"><div class="date-weekday h6">' . date("l", strtotime($currentDate)) . '</div><div class="date-day h7">' . date("M j", strtotime($currentDate)) . '</div></div></div>';
+        $html .= '<div class="date-wrapper"><div class="date-weekday h6">' . date("l", strtotime($currentDate)) . '</div><div class="date-day white bold centered-text">' . date("M j", strtotime($currentDate)) . '</div></div></div>';
         $lastDate = $currentDate;
         $columnId++;
       }
@@ -264,12 +264,12 @@ function calendar_d8_format_featured($jsonArr, $startDate, $endDate, $limit) {
 
     $html .= '<a href="https://calendar.byu.edu" class="full-link" id="full-events-area"><div class="full-events">';
     $html .= '<div class="full-events-text">FULL<div class="larger">EVENTS</div>CALENDAR</div>';
-    $html .= '<div class="full-events-button h7">View >></div>';
+    $html .= '<div class="full-events-button white bold centered-text">View >></div>';
     $html .= '</div></a>';
 
     $html .= '<a href="/academics" class="academic-link" id="academic-area"><div class="academic-calendar-wrapper">';
     $html .= '<div class="academic-calendar-text"><div class="larger">ACADEMIC</div>CALENDAR</div>';
-    $html .= '<div class="academic-calendar-button h7">View >></div>';
+    $html .= '<div class="academic-calendar-button white bold centered-text">View >></div>';
     $html .= '</div></a>';
 
 
