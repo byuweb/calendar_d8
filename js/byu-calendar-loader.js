@@ -1,7 +1,7 @@
 (function($) {
     $(document).ready(function() {
         var colTemplate = $('#calendar-event-column-template');
-        if (colTemplate.size() < 1) {
+        if (colTemplate.length < 1) {
             return;
         }
         var eventTemplate = $('#calendar-event-event-template');
