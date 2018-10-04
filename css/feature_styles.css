@@ -31,7 +31,7 @@
 .overall-feature-wrapper h5 {
     font-weight: bold;
     font-size: 12px;
-    line-height: 14px;
+    line-height: 15px;
     letter-spacing: .33px;
 }
 .overall-feature-wrapper h6 {
@@ -42,8 +42,8 @@
 }
 .overall-feature-wrapper .academic-calendar-button,
 .overall-feature-wrapper .full-events-button {
-    font-size: 14px;
-    line-height: 14px;
+    font-size: 15px;
+    line-height: 15px;
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
@@ -93,6 +93,7 @@
 .date-weekday.h6 {
     margin-top: 0;
     margin-bottom: 5px;
+    font-size: 15px;
 }
 
 .date-day {
@@ -184,7 +185,7 @@ column-links {
 
 .academic-calendar-text,
 .full-events-text {
-    font-size: 12px;
+    font-size: 15px;
     text-align: center;
     font-weight: 500;
 }
@@ -205,7 +206,7 @@ column-links {
     text-align: center;
     /*color: #fff;*/
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 15px;
 }
 /* positioning */
 .full-events-button {
@@ -327,4 +328,7 @@ column-links {
 }
 .event-time.h5 {
     margin-top: 2px;
+}
+.location {
+    font-size: 15px;
 }
