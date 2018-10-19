@@ -78,7 +78,7 @@
 
 .date-wrapper {
     width: 100%;
-    background: #5D7998; /* medblue */
+    background: #32538D; /* medblue */
     margin-bottom: 10px;
 }
 
@@ -118,7 +118,7 @@ column-links {
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    background-color: #5D7998;
+    background-color: #32538D;
 }
 .academic-link {
     height: 33%;
@@ -200,7 +200,7 @@ column-links {
 .academic-calendar-button,
 .full-events-button {
     padding: 5px 5px;
-    background:  #5D7998; /* medblue */
+    background:  #32538D; /* medblue */
     border: 3px solid #fff;
     width: 80px;
     text-align: center;
@@ -233,7 +233,7 @@ column-links {
 }
 #academic-area:focus .academic-calendar-button,
 #academic-area:hover .academic-calendar-button {
-    background: #5D7998; /* medblue */
+    background: #32538D; /* medblue */
 }
 
 .feature-column > .event.event-1 {
@@ -308,7 +308,7 @@ column-links {
         height: 65px;
     }
     .full-events {
-        background: #5D7998; /* medblue */
+        background: #32538D; /* medblue */
         height: 100%;
     }
     .academic-calendar-wrapper {
