@@ -84,13 +84,15 @@
 }
 .date-weekday.h6 {
   margin-top: 0;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
   font-size: 15px;
+  letter-spacing: 2px;
 }
 .date-day {
   /*font-weight: bold;*/
   font-size: 16px;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 /*Links column*/
 column-links {
