@@ -13,7 +13,7 @@
   color: #fff !important;
 }
 .overall-feature-wrapper h5, .overall-feature-wrapper h6, .overall-feature-wrapper .h5, .overall-feature-wrapper .h6, .overall-feature-wrapper .h7 {
-  font-family: "Ringside Narrow A", "Ringside Narrow B", Arial, sans-serif;
+  font-family: "HCo Ringside Narrow SSm", Arial, sans-serif;
 }
 .overall-feature-wrapper h4 {
   font-size: 18px;
@@ -165,7 +165,7 @@ column-links {
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-family: "Ringside Narrow A", "Ringside Narrow B", Arial, sans-serif;
+  font-family: "HCo Ringside Narrow SSm", Arial, sans-serif;
 }
 .academic-calendar-text,
 .full-events-text {
@@ -258,6 +258,7 @@ column-links {
   .date-weekday {
     order: 2;
     padding: 5px 30px 5px 15px;
+    letter-space: 2px;
   }
   .date-weekday.h6 {
     margin-bottom: 0;
@@ -265,6 +266,7 @@ column-links {
   .date-day {
     order: 1;
     padding: 0px 29px;
+    letter-spacing: 1px;
   }
   .full-events,
   .academic-calendar-wrapper {
