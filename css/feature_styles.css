@@ -171,15 +171,17 @@ column-links {
 }
 .academic-calendar-text,
 .full-events-text {
-  font-size: 15px;
+  font-size: 14px;
   text-align: center;
   font-weight: 500;
+  letter-spacing: 2px;
 }
 .academic-calendar-text .larger,
 .full-events-text .larger {
-  font-size: 16px;
+  font-size: 18px;
   margin: -3px 0px;
   font-weight: bold;
+  letter-spacing: 1px;
 }
 .academic-calendar-button,
 .full-events-button {
