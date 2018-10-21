@@ -258,6 +258,7 @@ column-links {
     justify-content: space-between;
     align-items: center;
     align-content: center;
+    height: 40px;
   }
   .date-weekday {
     order: 2;
